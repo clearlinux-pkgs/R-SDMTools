@@ -4,16 +4,20 @@
 #
 Name     : R-SDMTools
 Version  : 1.1.221
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/SDMTools_1.1-221.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/SDMTools_1.1-221.tar.gz
 Summary  : Species Distribution Modelling Tools: Tools for processing data
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-SDMTools-lib
+Requires: R-SDMTools-lib = %{version}-%{release}
+Requires: R-R.methodsS3
+Requires: R-R.oo
 Requires: R-R.utils
+BuildRequires : R-R.methodsS3
+BuildRequires : R-R.oo
 BuildRequires : R-R.utils
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 outcomes of species distribution modeling exercises. It includes novel
@@ -40,11 +44,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521242771
+export SOURCE_DATE_EPOCH=1552855647
 
 %install
+export SOURCE_DATE_EPOCH=1552855647
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521242771
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -79,8 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library SDMTools|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  SDMTools || :
 
 
 %files
@@ -104,7 +107,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/SDMTools/help/paths.rds
 /usr/lib64/R/library/SDMTools/html/00Index.html
 /usr/lib64/R/library/SDMTools/html/R.css
-/usr/lib64/R/library/SDMTools/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
