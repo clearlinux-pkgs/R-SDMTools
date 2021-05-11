@@ -4,7 +4,7 @@
 #
 Name     : R-SDMTools
 Version  : 1.1.221.2
-Release  : 32
+Release  : 33
 URL      : https://cran.r-project.org/src/contrib/SDMTools_1.1-221.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/SDMTools_1.1-221.2.tar.gz
 Summary  : Species Distribution Modelling Tools: Tools for processing data
@@ -41,10 +41,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589586653
+export SOURCE_DATE_EPOCH=1620763355
 
 %install
-export SOURCE_DATE_EPOCH=1589586653
+export SOURCE_DATE_EPOCH=1620763355
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -109,3 +109,4 @@ R CMD check --no-manual --no-examples --no-codoc SDMTools || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/SDMTools/libs/SDMTools.so
 /usr/lib64/R/library/SDMTools/libs/SDMTools.so.avx2
+/usr/lib64/R/library/SDMTools/libs/SDMTools.so.avx512
