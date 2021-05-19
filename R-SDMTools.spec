@@ -4,7 +4,7 @@
 #
 Name     : R-SDMTools
 Version  : 1.1.221.2
-Release  : 33
+Release  : 34
 URL      : https://cran.r-project.org/src/contrib/SDMTools_1.1-221.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/SDMTools_1.1-221.2.tar.gz
 Summary  : Species Distribution Modelling Tools: Tools for processing data
